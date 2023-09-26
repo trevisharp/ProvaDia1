@@ -1,0 +1,416 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A8A27274-3E41-4034-A3B9-D919180367BE}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>DesktopPR</RootNamespace>
+    <AssemblyName>DesktopPR</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AlunoApresentacao.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AlunoExcluido.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Alunos.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Apresentacao.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Docentes.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Pessoa.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Principal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Principal.Designer.cs">
+      <DependentUpon>Principal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Usuarios.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Principal.resx">
+      <DependentUpon>Principal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EntityDeploy Include="Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\001-home.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\002-home2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\003-home3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\004-office.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\005-newspaper.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\006-pencil.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\007-pencil2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\008-quill.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\009-pen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\010-blog.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\011-eyedropper.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\012-droplet.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\013-paint-format.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\014-image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\015-images.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\016-camera.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\017-headphones.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\018-music.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\019-play.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\020-film.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\021-video-camera.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\022-dice.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\023-pacman.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\024-spades.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\025-clubs.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\026-diamonds.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\027-bullhorn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\028-connection.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\029-podcast.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\030-feed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\031-mic.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\032-book.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\033-books.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\034-library.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\035-file-text.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\036-profile.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\037-file-empty.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\038-files-empty.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\039-file-text2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\040-file-picture.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\041-file-music.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\042-file-play.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\043-file-video.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\044-file-zip.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\045-copy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\046-paste.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\047-stack.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\048-folder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\049-folder-open.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\050-folder-plus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\051-folder-minus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\052-folder-download.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\053-folder-upload.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\054-price-tag.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\056-barcode.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\057-qrcode.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\058-ticket.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\059-cart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\061-coin-euro.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\062-coin-pound.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\063-coin-yen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\064-credit-card.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\065-calculator.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\066-lifebuoy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\067-phone.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\068-phone-hang-up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\069-address-book.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\070-envelop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\073-location2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\074-compass.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\075-compass2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\076-map.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\078-history.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\079-clock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\080-clock2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\083-stopwatch.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\087-display.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\090-mobile2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\095-box-add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\096-box-remove.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\097-download.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\099-floppy-disk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Content>
+    <Content Include="Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

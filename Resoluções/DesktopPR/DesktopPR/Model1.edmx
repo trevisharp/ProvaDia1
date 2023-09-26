@@ -1,0 +1,411 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DesktopPRModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AlunoApresentacao">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idApresentacao" Type="int" />
+          <Property Name="idAluno" Type="int" />
+        </EntityType>
+        <EntityType Name="AlunoExcluido">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Aluno" Type="text" />
+        </EntityType>
+        <EntityType Name="Alunos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="DataCadastro" Type="date" />
+        </EntityType>
+        <EntityType Name="Apresentacao">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="caminho" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Docentes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Admissao" Type="date" />
+        </EntityType>
+        <EntityType Name="Pessoa">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nome" Type="nvarchar" MaxLength="255" />
+          <Property Name="CPF" Type="nvarchar" MaxLength="255" />
+          <Property Name="Sexo" Type="nvarchar" MaxLength="255" />
+          <Property Name="email" Type="nvarchar" MaxLength="255" />
+          <Property Name="Telefone" Type="nvarchar" MaxLength="255" />
+          <Property Name="DataNascimento" Type="date" />
+          <Property Name="Foto" Type="image" />
+        </EntityType>
+        <EntityType Name="Usuarios">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Usuario" Type="nvarchar" MaxLength="255" />
+          <Property Name="Senha" Type="nvarchar" MaxLength="255" />
+          <Property Name="Bloqueado" Type="bit" />
+        </EntityType>
+        <Association Name="FK_AlunoApresentacao_Alunos">
+          <End Role="Alunos" Type="Self.Alunos" Multiplicity="0..1" />
+          <End Role="AlunoApresentacao" Type="Self.AlunoApresentacao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Alunos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AlunoApresentacao">
+              <PropertyRef Name="idAluno" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AlunoApresentacao_Apresentacao">
+          <End Role="Apresentacao" Type="Self.Apresentacao" Multiplicity="0..1" />
+          <End Role="AlunoApresentacao" Type="Self.AlunoApresentacao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Apresentacao">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="AlunoApresentacao">
+              <PropertyRef Name="idApresentacao" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Alunos_Pessoa">
+          <End Role="Pessoa" Type="Self.Pessoa" Multiplicity="1" />
+          <End Role="Alunos" Type="Self.Alunos" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Pessoa">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Alunos">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Docentes_Pessoa">
+          <End Role="Pessoa" Type="Self.Pessoa" Multiplicity="1" />
+          <End Role="Docentes" Type="Self.Docentes" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Pessoa">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Docentes">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Usuarios_Pessoa">
+          <End Role="Pessoa" Type="Self.Pessoa" Multiplicity="1" />
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Pessoa">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Usuarios">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DesktopPRModelStoreContainer">
+          <EntitySet Name="AlunoApresentacao" EntityType="Self.AlunoApresentacao" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AlunoExcluido" EntityType="Self.AlunoExcluido" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Alunos" EntityType="Self.Alunos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Apresentacao" EntityType="Self.Apresentacao" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Docentes" EntityType="Self.Docentes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Pessoa" EntityType="Self.Pessoa" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_AlunoApresentacao_Alunos" Association="Self.FK_AlunoApresentacao_Alunos">
+            <End Role="Alunos" EntitySet="Alunos" />
+            <End Role="AlunoApresentacao" EntitySet="AlunoApresentacao" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AlunoApresentacao_Apresentacao" Association="Self.FK_AlunoApresentacao_Apresentacao">
+            <End Role="Apresentacao" EntitySet="Apresentacao" />
+            <End Role="AlunoApresentacao" EntitySet="AlunoApresentacao" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Alunos_Pessoa" Association="Self.FK_Alunos_Pessoa">
+            <End Role="Pessoa" EntitySet="Pessoa" />
+            <End Role="Alunos" EntitySet="Alunos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Docentes_Pessoa" Association="Self.FK_Docentes_Pessoa">
+            <End Role="Pessoa" EntitySet="Pessoa" />
+            <End Role="Docentes" EntitySet="Docentes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Usuarios_Pessoa" Association="Self.FK_Usuarios_Pessoa">
+            <End Role="Pessoa" EntitySet="Pessoa" />
+            <End Role="Usuarios" EntitySet="Usuarios" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DesktopPRModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AlunoApresentacao">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idApresentacao" Type="Int32" />
+          <Property Name="idAluno" Type="Int32" />
+          <NavigationProperty Name="Alunos" Relationship="Self.FK_AlunoApresentacao_Alunos" FromRole="AlunoApresentacao" ToRole="Alunos" />
+          <NavigationProperty Name="Apresentacao" Relationship="Self.FK_AlunoApresentacao_Apresentacao" FromRole="AlunoApresentacao" ToRole="Apresentacao" />
+        </EntityType>
+        <EntityType Name="AlunoExcluido">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Aluno" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Alunos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="DataCadastro" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="AlunoApresentacao" Relationship="Self.FK_AlunoApresentacao_Alunos" FromRole="Alunos" ToRole="AlunoApresentacao" />
+          <NavigationProperty Name="Pessoa" Relationship="Self.FK_Alunos_Pessoa" FromRole="Alunos" ToRole="Pessoa" />
+        </EntityType>
+        <EntityType Name="Apresentacao">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="caminho" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="AlunoApresentacao" Relationship="Self.FK_AlunoApresentacao_Apresentacao" FromRole="Apresentacao" ToRole="AlunoApresentacao" />
+        </EntityType>
+        <EntityType Name="Docentes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Admissao" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Pessoa" Relationship="Self.FK_Docentes_Pessoa" FromRole="Docentes" ToRole="Pessoa" />
+        </EntityType>
+        <EntityType Name="Pessoa">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CPF" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Sexo" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Telefone" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="DataNascimento" Type="DateTime" Precision="0" />
+          <Property Name="Foto" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="Alunos" Relationship="Self.FK_Alunos_Pessoa" FromRole="Pessoa" ToRole="Alunos" />
+          <NavigationProperty Name="Docentes" Relationship="Self.FK_Docentes_Pessoa" FromRole="Pessoa" ToRole="Docentes" />
+          <NavigationProperty Name="Usuarios" Relationship="Self.FK_Usuarios_Pessoa" FromRole="Pessoa" ToRole="Usuarios" />
+        </EntityType>
+        <EntityType Name="Usuarios">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Usuario" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Senha" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Bloqueado" Type="Boolean" />
+          <NavigationProperty Name="Pessoa" Relationship="Self.FK_Usuarios_Pessoa" FromRole="Usuarios" ToRole="Pessoa" />
+        </EntityType>
+        <Association Name="FK_AlunoApresentacao_Alunos">
+          <End Role="Alunos" Type="Self.Alunos" Multiplicity="0..1" />
+          <End Role="AlunoApresentacao" Type="Self.AlunoApresentacao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Alunos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AlunoApresentacao">
+              <PropertyRef Name="idAluno" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AlunoApresentacao_Apresentacao">
+          <End Role="Apresentacao" Type="Self.Apresentacao" Multiplicity="0..1" />
+          <End Role="AlunoApresentacao" Type="Self.AlunoApresentacao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Apresentacao">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="AlunoApresentacao">
+              <PropertyRef Name="idApresentacao" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Alunos_Pessoa">
+          <End Role="Pessoa" Type="Self.Pessoa" Multiplicity="1" />
+          <End Role="Alunos" Type="Self.Alunos" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Pessoa">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Alunos">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Docentes_Pessoa">
+          <End Role="Pessoa" Type="Self.Pessoa" Multiplicity="1" />
+          <End Role="Docentes" Type="Self.Docentes" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Pessoa">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Docentes">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Usuarios_Pessoa">
+          <End Role="Pessoa" Type="Self.Pessoa" Multiplicity="1" />
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Pessoa">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Usuarios">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DesktopPREntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AlunoApresentacao" EntityType="Self.AlunoApresentacao" />
+          <EntitySet Name="AlunoExcluido" EntityType="Self.AlunoExcluido" />
+          <EntitySet Name="Alunos" EntityType="Self.Alunos" />
+          <EntitySet Name="Apresentacao" EntityType="Self.Apresentacao" />
+          <EntitySet Name="Docentes" EntityType="Self.Docentes" />
+          <EntitySet Name="Pessoa" EntityType="Self.Pessoa" />
+          <EntitySet Name="Usuarios" EntityType="Self.Usuarios" />
+          <AssociationSet Name="FK_AlunoApresentacao_Alunos" Association="Self.FK_AlunoApresentacao_Alunos">
+            <End Role="Alunos" EntitySet="Alunos" />
+            <End Role="AlunoApresentacao" EntitySet="AlunoApresentacao" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AlunoApresentacao_Apresentacao" Association="Self.FK_AlunoApresentacao_Apresentacao">
+            <End Role="Apresentacao" EntitySet="Apresentacao" />
+            <End Role="AlunoApresentacao" EntitySet="AlunoApresentacao" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Alunos_Pessoa" Association="Self.FK_Alunos_Pessoa">
+            <End Role="Pessoa" EntitySet="Pessoa" />
+            <End Role="Alunos" EntitySet="Alunos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Docentes_Pessoa" Association="Self.FK_Docentes_Pessoa">
+            <End Role="Pessoa" EntitySet="Pessoa" />
+            <End Role="Docentes" EntitySet="Docentes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Usuarios_Pessoa" Association="Self.FK_Usuarios_Pessoa">
+            <End Role="Pessoa" EntitySet="Pessoa" />
+            <End Role="Usuarios" EntitySet="Usuarios" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DesktopPRModelStoreContainer" CdmEntityContainer="DesktopPREntities1">
+          <EntitySetMapping Name="AlunoApresentacao">
+            <EntityTypeMapping TypeName="DesktopPRModel.AlunoApresentacao">
+              <MappingFragment StoreEntitySet="AlunoApresentacao">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="idApresentacao" ColumnName="idApresentacao" />
+                <ScalarProperty Name="idAluno" ColumnName="idAluno" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AlunoExcluido">
+            <EntityTypeMapping TypeName="DesktopPRModel.AlunoExcluido">
+              <MappingFragment StoreEntitySet="AlunoExcluido">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Aluno" ColumnName="Aluno" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Alunos">
+            <EntityTypeMapping TypeName="DesktopPRModel.Alunos">
+              <MappingFragment StoreEntitySet="Alunos">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="DataCadastro" ColumnName="DataCadastro" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Apresentacao">
+            <EntityTypeMapping TypeName="DesktopPRModel.Apresentacao">
+              <MappingFragment StoreEntitySet="Apresentacao">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="caminho" ColumnName="caminho" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Docentes">
+            <EntityTypeMapping TypeName="DesktopPRModel.Docentes">
+              <MappingFragment StoreEntitySet="Docentes">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Admissao" ColumnName="Admissao" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pessoa">
+            <EntityTypeMapping TypeName="DesktopPRModel.Pessoa">
+              <MappingFragment StoreEntitySet="Pessoa">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="CPF" ColumnName="CPF" />
+                <ScalarProperty Name="Sexo" ColumnName="Sexo" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="Telefone" ColumnName="Telefone" />
+                <ScalarProperty Name="DataNascimento" ColumnName="DataNascimento" />
+                <ScalarProperty Name="Foto" ColumnName="Foto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usuarios">
+            <EntityTypeMapping TypeName="DesktopPRModel.Usuarios">
+              <MappingFragment StoreEntitySet="Usuarios">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+                <ScalarProperty Name="Senha" ColumnName="Senha" />
+                <ScalarProperty Name="Bloqueado" ColumnName="Bloqueado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

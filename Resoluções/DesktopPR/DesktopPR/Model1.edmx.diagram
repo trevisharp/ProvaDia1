@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="3e86d1d618234dbf852c4b83e9b663f3" Name="Diagram1">
+        <EntityTypeShape EntityType="DesktopPRModel.AlunoApresentacao" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DesktopPRModel.AlunoExcluido" Width="1.5" PointX="5.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DesktopPRModel.Alunos" Width="1.5" PointX="3" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DesktopPRModel.Apresentacao" Width="1.5" PointX="3" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DesktopPRModel.Docentes" Width="1.5" PointX="3" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DesktopPRModel.Pessoa" Width="1.5" PointX="0.75" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DesktopPRModel.Usuarios" Width="1.5" PointX="3" PointY="6.125" IsExpanded="true" />
+        <AssociationConnector Association="DesktopPRModel.FK_AlunoApresentacao_Alunos" ManuallyRouted="false" />
+        <AssociationConnector Association="DesktopPRModel.FK_AlunoApresentacao_Apresentacao" ManuallyRouted="false" />
+        <AssociationConnector Association="DesktopPRModel.FK_Alunos_Pessoa" ManuallyRouted="false" />
+        <AssociationConnector Association="DesktopPRModel.FK_Docentes_Pessoa" ManuallyRouted="false" />
+        <AssociationConnector Association="DesktopPRModel.FK_Usuarios_Pessoa" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

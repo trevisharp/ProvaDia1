@@ -11,3 +11,4 @@ O mesmo vale para o de atividade:
 -Adicionar 0,2 para as mensagens trocadas entre os objetos.
 -Adicionar 0,2 para a organização lógica do diagrama.
 -Adicionar 0,2 para a ordem correta das sequências de mensagens.
+LEMBRE-SE DE NÃO DEIXAR NENHUMA ATIVIDADE SOLTA, cada atividade deve ligar ou em outra atividade ou no simbolo de fim do diagrama

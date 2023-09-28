@@ -1,0 +1,12 @@
+Jair Melissa Mollsonaro,
+
+Você está indo muito bem, to gostando de ver.
+Acho que pode colocar uns extends e includes, talvez. Não acho que o que você fez ta errado não. Da pra filosofar em cima do meu e chegar numa conclusão.
+
+E ah! Se esqueceu:
+
+var result = await DisplayActionSheet("titulo", null, null, "op1", "op2");
+
+Se sobrar tempo não precisa arriscar muito, ta safe. Fizemos o brabíssimo.
+
+Com amor, Trevis

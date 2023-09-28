@@ -8,5 +8,6 @@ E ah! Se esqueceu:
 var result = await DisplayActionSheet("titulo", null, null, "op1", "op2");
 
 Se sobrar tempo não precisa arriscar muito, ta safe. Fizemos o brabíssimo.
+Mas vale a pena colocar 3 retângulos com as cores certas pra fingir que tem 3 cartas.
 
 Com amor, Trevis
